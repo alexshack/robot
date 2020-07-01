@@ -1,0 +1,328 @@
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+@import "scss/bootstrap/functions";
+@import "scss/bootstrap/variables";
+
+@mixin font($family_name, $font_name, $file_name, $weight, $style) {
+ 	@font-face {
+	    font-family: $family_name;
+	    font-display: swap;
+	    src: url('../fonts/#{$file_name}.eot');
+	    src: local($font_name), local($file_name),
+	        url('../fonts/#{$file_name}.eot?#iefix') format('embedded-opentype'),
+	        url('../fonts/#{$file_name}.woff2') format('woff2'),
+	        url('../fonts/#{$file_name}.woff') format('woff'),
+	        url('../fonts/#{$file_name}.ttf') format('truetype');
+	    font-weight: #{$weight};
+	    font-style: #{$style};
+	}    
+}
+
+@include font('Venti CF', 'Venti CF Light', 'VentiCF-Light', '300', 'normal');
+@include font('Venti CF', 'Venti CF Medium', 'VentiCF-Medium', '500', 'normal');
+@include font('Venti CF', 'Venti CF Demi Bold', 'VentiCF-DemiBold', '600', 'normal');
+
+$font-rem: 14;
+
+$f-light: 300;
+$f-normal: 500;
+$f-bold: 600;
+
+$c-txt: #74849E;
+$c-prm: #2276F9;
+$c-sec: #494949;
+$c-hvr: #5A99FC;
+$c-bg: #fff;
+$c-line: #CDE0FF;
+
+@function f-rem($n) {
+  @return $n / $font-rem * 1rem;
+}
+
+html {
+	font-size: 14px;
+	font-weight: $f-normal;
+}
+
+body {
+	line-height: 1;
+	position: relative;
+	font-family: 'Venti CF', sans-serif;
+	font-weight: $f-normal;
+	font-style: normal;
+	color: $c-txt;	
+	background-color: $c-bg;
+}
+
+
+@media (min-width: 1440px) {
+	.container {
+		max-width: 1360px;
+	}
+}
+
+
+h1, h2, h3, p, a {
+	line-height: 1;
+	padding: 0;
+	margin: 0;
+	font-weight: $f-normal;
+}
+
+h1 {
+	font-size: f-rem(22);
+	color: $c-prm;
+	font-weight: $f-bold;
+}
+
+h2 {
+	font-size: f-rem(22);
+	color: $c-prm;
+	font-weight: $f-normal;
+	margin-bottom: f-rem(10);
+}
+
+h3 {
+	font-size: f-rem(14);
+	line-height: f-rem(16);
+	color: $c-sec;
+	font-weight: $f-normal;	
+}
+
+p {
+	font-size: f-rem(14);
+	line-height: f-rem(16);
+}
+
+a {
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+		color: $c-hvr;
+	}
+}
+
+input, textarea {
+outline: 0!important;
+outline-color: transparent!important;
+outline-width: 0!important;
+outline-style: none!important;
+box-shadow: 0 0 0 0 rgba(0,123,255,0)!important;
+}
+input:active, textarea:active {
+outline: 0!important;
+outline-color: transparent!important;
+outline-width: 0!important;
+outline-style: none!important;
+box-shadow: 0 0 0 0 rgba(0,123,255,0)!important;
+}
+:focus {
+outline: 0!important;
+outline-color: transparent!important;
+outline-width: 0!important;
+outline-style: none!important;
+box-shadow: 0 0 0 0 rgba(0,123,255,0)!important;
+}
+
+.btn {
+	margin: 0;
+	padding: f-rem(6) f-rem(15) f-rem(4);
+	border: 1px solid $c-prm;
+	border-radius: f-rem(69);
+	background-color: $c-bg;
+	color: $c-prm;
+	font-size: f-rem(14);
+	line-height: 1;
+	&:hover {
+		color: $c-bg;
+		background-color: $c-prm;
+		text-decoration: none;
+	}
+	&-big {
+		font-size: f-rem(18);
+		padding: f-rem(10) f-rem(15) f-rem(8);
+	}
+}
+
+.container {
+	border: 1px solid $c-prm;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 15px rgba(58, 129, 245, 0.15);
+	border-radius: 20px;
+	padding: 20px 40px;
+}
+
+.dropdown-toggle::after {
+	border-top: f-rem(3) solid;
+    border-right: f-rem(3) solid transparent;
+    border-bottom: 0;
+    border-left: f-rem(3) solid transparent;
+    vertical-align: f-rem(3);
+    margin-left: f-rem(5);
+}
+
+.dropdown-menu {
+	margin-top: 1px;
+	margin-left: f-rem(-10);
+	padding: 0;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 15px rgba(58, 129, 245, 0.15);
+	border-radius: 0px 0px 10px 10px;
+	border: 0;
+	.dropdown-item {
+		font-size: f-rem(16);
+		line-height: 1;
+		font-weight: $f-light;
+		color: $c-prm;
+		padding: f-rem(10) f-rem(20);
+		&.active, &:hover {
+			background-color: $c-prm;
+			color: $c-bg;
+		}
+	}
+}
+
+header {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 0;
+	.container {
+		padding: 0;
+		border-radius: 40px;
+	}
+	.navbar {
+		padding: 0;
+		margin: 0;
+		&-brand {
+			padding: f-rem(12);
+			margin: 0;
+			svg {
+				width: 31px;
+				height: 31px;
+			}
+		}
+		&-collapse {
+			justify-content: center;
+		}
+		&-text {
+			padding: f-rem(12);
+			margin: 0;
+			display: flex;
+			align-items: center;
+			&_link {
+				padding: 0 f-rem(8);
+				color: $c-prm;
+				&:hover, &.active {
+					color: $c-hvr;
+				}
+				&.navbar-text_avatar {
+					padding-right: 0;
+					svg {
+						border-radius: 50%;
+						border: 1px solid $c-prm;
+					}
+					img {
+						width: f-rem(31);
+						height: f-rem(31);
+						border-radius: 50%;
+						border: 1px solid $c-prm;
+					}
+				}
+			}
+		}
+	}
+}
+
+.navbar-nav {
+	padding: 0;
+	margin: 0;
+	.nav-item {
+		.nav-link {
+			display: flex;
+			align-items: center;
+			font-size: f-rem(18);
+			line-height: 1;
+			height: f-rem(55);
+			vertical-align: center;
+			background-color: $c-bg;
+			color: $c-prm;
+			padding: 0 f-rem(10);
+			&.active, &:hover {
+				background-color: $c-prm;
+				color: $c-bg;
+			}
+
+		}
+
+	}
+} 
+
+
+.avatar {
+	svg, img {
+		width: f-rem(40);
+		height: f-rem(40);
+		border-radius: 50%;
+    	
+	}
+	&-big {
+		svg, img {
+			width: f-rem(90);
+			height: f-rem(90);
+		}
+	}
+	&-self {
+		svg, img {
+			border: 1px solid #2276F9;
+		}
+	}
+}
+
+.qb-header {
+	padding: f-rem(20) 0;
+	border-bottom: 1px solid $c-line;
+	color: $c-prm;
+	align-items: center;
+	margin-bottom: f-rem(20);
+
+}
+
+
+.qb-stat {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	font-size: f-rem(16);
+	a:hover {
+		text-decoration: none;
+	}
+	&_partner {
+		margin-left: f-rem(25);
+		color: $c-prm;
+		svg {
+			width: f-rem(13);
+			height: f-rem(12);
+			margin-top: f-rem(-4);
+		}
+		&-summ {
+			font-weight: $f-bold;	
+		}
+	}
+	&_wallet {
+		margin-left: f-rem(25);
+		color: $c-prm;
+		svg {
+			width: f-rem(13);
+			height: f-rem(11);
+			margin-top: f-rem(-4);
+		}
+		&-summ {
+			font-weight: $f-bold;
+		}
+		&-val {
+			font-weight: $f-normal;
+		}
+	}	
+}
+

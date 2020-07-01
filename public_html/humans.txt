@@ -1,0 +1,19 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+Lead manager: Alex Shack.
+Design: Andrey Tcvetkov.
+Coding: Yura Kiselev.
+Site: https://vk.com/torbatarget.
+Location: Krasnodar, Russia.
+
+# THANKS
+
+    <name>
+
+# TECHNOLOGY COLOPHON
+
+Standards: CSS3, HTML5
+Components: Apache Server Configs, jQuery, Modernizr, Normalize.css, Bootstrap
